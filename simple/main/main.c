@@ -527,7 +527,7 @@ struct ServerData
     int num_messages;
     psa_key_handle_t dev;
 };
-
+char clave_publica_hex[135];
 size_t olenB;
 uint8_t llave_alice[65];
 uint8_t llave_publica_bob[65];
@@ -612,10 +612,10 @@ esp_err_t enviar_msg_handler(httpd_req_t *req)
     evo(err);
     err = httpd_req_get_hdr_value_str(req, "Content-Type", message, message_len + 1);
     evo(err);
-    ESP_LOGE(TAG, "%s", message);
+    
     char *buffer = malloc(150);
-    err = httpd_req_get_url_query_str(req, buffer, message_len + 1);
-    evo(err);
+    /*err = httpd_req_get_url_query_str(req, buffer, message_len + 1);
+    evo(err);*/
     if (httpd_req_recv(req, buffer, 149) <= 0)
     {
         free(buffer);
@@ -623,15 +623,15 @@ esp_err_t enviar_msg_handler(httpd_req_t *req)
         return ESP_FAIL;
     }
     // printf("%d\n",httpd_req_recv(req, buffer,   120));
-    printf("%d\n", req->content_len);
-    printf("%s\n", buffer);
+    
+    
 
     /*if (httpd_req_get_url_query_str(req, buffer, message_len+1) != ESP_OK) {
         free(buffer);
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid messagevacio");
         return ESP_FAIL;
     }*/
-    ESP_LOGE(TAG, "%s", buffer);
+    
     // buffer[message_len] = '\0';
     cJSON *jsonObject = cJSON_Parse(buffer);
     free(buffer);
@@ -651,12 +651,12 @@ esp_err_t enviar_msg_handler(httpd_req_t *req)
     if (cJSON_IsString(jsonMessage))
     {
         const char *clavep = cJSON_GetStringValue(jsonMessage);
-        ESP_LOGE(TAG, "%s", clavep);
+        
     }
 
     strcpy(message, jsonMessage->valuestring);
     cJSON_Delete(jsonObject);
-    ESP_LOGE(TAG, "%s", message);
+    
     if (strcmp(server_id, server_data.server_id) == 0)
     {
         if (server_data.num_messages >= 10)
@@ -665,7 +665,7 @@ esp_err_t enviar_msg_handler(httpd_req_t *req)
             return ESP_FAIL;
         }
         strcpy(server_data.messages[0], message);
-        ESP_LOGE(TAG, "Esto es en el server:%s", server_data.messages[0]);
+        
         server_data.num_messages++;
         printf("Mensaje recibido: %s\n", message);
         httpd_resp_send(req, "Mensaje recibido", HTTPD_RESP_USE_STRLEN);
@@ -690,19 +690,20 @@ esp_err_t enviar_msg_handler(httpd_req_t *req)
     evaluar(estado);
     estado = psa_export_public_key(llave_privada_bob, llave_publica_bob, sizeof(llave_publica_bob), &olenB);
     evaluar(estado);
-    char clave_publica_hex[135]; // 65 bytes (2 caracteres hexadecimales por byte) + 1 byte nulo
+    //char clave_publica_hex[135]; // 65 bytes (2 caracteres hexadecimales por byte) + 1 byte nulo
     char post_data[256];
     for (int i = 0; i < sizeof(llave_publica_bob); i++)
     {
         snprintf(clave_publica_hex + (2 * i), sizeof(clave_publica_hex) - (2 * i), "%02x", llave_publica_bob[i]);
     }
+    printf("Clave publica server: ");
     for (int i = 0; i < sizeof(llave_publica_bob); i++)
     {
         printf("%02x", llave_publica_bob[i]);
     }
     printf("\n");
     strcpy(server_data.public_key_alice[0], clave_publica_hex);
-    ESP_LOGI(TAG, "%s", server_data.public_key_alice[0]);
+    //ESP_LOGI(TAG, "%s", server_data.public_key_alice[0]);
     ESP_LOGE(TAG, "------------------------------------------------------------------------");
     return ESP_OK;
 }
@@ -716,7 +717,7 @@ esp_err_t mensajes_handler(httpd_req_t *req)
     char *server_id = NULL;
     req->content_len = 200;
 
-    ESP_LOGE(TAG, "CLAVE SERVER: %s", server_data.public_key_alice[0]);
+    //ESP_LOGE(TAG, "CLAVE SERVER: %s", server_data.public_key_alice[0]);
 
     /*cJSON *public_key_alice_dict=cJSON_CreateString(server_data.public_key_alice[0]);
     cJSON *esp1 = cJSON_CreateObject();
@@ -727,7 +728,7 @@ esp_err_t mensajes_handler(httpd_req_t *req)
     char *response = cJSON_Print(esp1);*/
     // cJSON_Delete(esp1);
     cJSON *jsonObject = cJSON_CreateObject();
-    cJSON_AddStringToObject(jsonObject, "public_key_alice", server_data.public_key_alice[0]);
+    cJSON_AddStringToObject(jsonObject, "public_key_alice", clave_publica_hex);
     char *jsonData = cJSON_PrintUnformatted(jsonObject);
 
     printf("%s", jsonData);
@@ -776,7 +777,7 @@ esp_err_t compartida_handler(httpd_req_t *req)
     evo(err);
     err = httpd_req_get_hdr_value_str(req, "Content-Type", message, message_len + 1);
     evo(err);
-    ESP_LOGE(TAG, "%s", message);
+    //ESP_LOGE(TAG, "%s", message);
     char *buffer = malloc(150);
     if (httpd_req_recv(req, buffer, 149) <= 0)
     {
@@ -786,7 +787,7 @@ esp_err_t compartida_handler(httpd_req_t *req)
     }
 
     printf("%d\n", req->content_len);
-    printf("%s\n", buffer);
+    //printf("%s\n", buffer);
     ESP_LOGE(TAG, "%s", buffer);
     // buffer[message_len] = '\0';
     cJSON *jsonObject = cJSON_Parse(buffer);
@@ -807,11 +808,11 @@ esp_err_t compartida_handler(httpd_req_t *req)
     if (cJSON_IsString(jcompartida))
     {
         const char *clavep = cJSON_GetStringValue(jcompartida);
-        ESP_LOGE(TAG, "%s", clavep);
+       // ESP_LOGE(TAG, "%s", clavep);
     }
     strcpy(message, jcompartida->valuestring);
     cJSON_Delete(jsonObject);
-    ESP_LOGE(TAG, "%s", message);
+    //ESP_LOGE(TAG, "%s", message);
     if (strcmp(server_id, server_data.server_id) == 0)
     {
         if (server_data.num_messages >= 10)
@@ -820,10 +821,15 @@ esp_err_t compartida_handler(httpd_req_t *req)
             return ESP_FAIL;
         }
         strcpy(server_data.derivadaB, message);
-        ESP_LOGE(TAG, "Esto es en el server:%s", server_data.compartidaB);
+        //ESP_LOGE(TAG, "Esto es en el server:%s", server_data.compartidaB);
 
         printf("Mensaje recibido: %s\n", message);
         httpd_resp_send(req, "Mensaje recibido", HTTPD_RESP_USE_STRLEN);
+        printf("\n");
+        printf("\n");
+        ESP_LOGE(TAG, "------------------------------------------------------------------------");
+        printf("\n");
+        printf("\n");
     }
     else
     {
@@ -857,17 +863,17 @@ esp_err_t verificacion_handler(httpd_req_t *req)
 
     size_t byte_len = hex_len / 2;
     hexToBytes(server_data.messages[0], llave_alice, byte_len);
-    for (int i = 0; i < sizeof(llave_alice); i++)
+    /*for (int i = 0; i < sizeof(llave_alice); i++)
     {
         printf("%02X ", llave_alice[i]); // Imprimir cada byte en hexadecimal
-    }
+    }*/
     psa_status_t estado2 = psa_crypto_init();
     estado2 = psa_raw_key_agreement(PSA_ALG_ECDH, llave_privada_bob, llave_alice, sizeof(llave_alice), compartidaB, sizeof(compartidaB), &output_lenB);
     printf("\n");
     evaluar(estado2);
 
     printf("\n");
-    printf("Bytes Compartida ESP: ");
+    printf("Bytes Compartida ESP SERVER: ");
     for (int i = 0; i < sizeof(compartidaB); i++)
     {
         printf("%02x ", compartidaB[i]);
@@ -1317,6 +1323,9 @@ static httpd_handle_t start_webserver(void)
     httpd_handle_t server = NULL;
     httpd_config_t config = HTTPD_DEFAULT_CONFIG();
     config.lru_purge_enable = true;
+    config.max_uri_handlers=100;
+    config.server_port=80;
+    config.stack_size=8192;
 
     // Start the httpd server
     ESP_LOGI(TAG, "Starting server on port: '%d'", config.server_port);
