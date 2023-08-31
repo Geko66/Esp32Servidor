@@ -643,6 +643,16 @@
         "children": [],
         "depends_on": null,
         "help": null,
+        "id": "SOC_GPIO_SUPPORT_SLP_SWITCH",
+        "name": "SOC_GPIO_SUPPORT_SLP_SWITCH",
+        "range": null,
+        "title": null,
+        "type": "bool"
+    },
+    {
+        "children": [],
+        "depends_on": null,
+        "help": null,
         "id": "SOC_I2C_NUM",
         "name": "SOC_I2C_NUM",
         "range": null,
@@ -1735,16 +1745,6 @@
         "help": null,
         "id": "SOC_PM_SUPPORT_RTC_SLOW_MEM_PD",
         "name": "SOC_PM_SUPPORT_RTC_SLOW_MEM_PD",
-        "range": null,
-        "title": null,
-        "type": "bool"
-    },
-    {
-        "children": [],
-        "depends_on": null,
-        "help": null,
-        "id": "SOC_PM_SUPPORT_MODEM_PD",
-        "name": "SOC_PM_SUPPORT_MODEM_PD",
         "range": null,
         "title": null,
         "type": "bool"
@@ -4641,16 +4641,6 @@
                                 "range": null,
                                 "title": null,
                                 "type": "int"
-                            },
-                            {
-                                "children": [],
-                                "depends_on": "IDF_TARGET_ESP32",
-                                "help": "If you have an invalid MAC CRC (ESP_ERR_INVALID_CRC) problem\nand you still want to use this chip, you can enable this option to bypass such an error.\nThis applies to both MAC_FACTORY and CUSTOM_MAC efuses.",
-                                "id": "ESP_MAC_IGNORE_MAC_CRC_ERROR",
-                                "name": "ESP_MAC_IGNORE_MAC_CRC_ERROR",
-                                "range": null,
-                                "title": "Ignore MAC CRC error (not recommended)",
-                                "type": "bool"
                             }
                         ],
                         "depends_on": null,
@@ -4737,24 +4727,6 @@
                         "depends_on": null,
                         "id": "component-config-hardware-settings-sleep-config",
                         "title": "Sleep Config",
-                        "type": "menu"
-                    },
-                    {
-                        "children": [
-                            {
-                                "children": [],
-                                "depends_on": "IDF_TARGET_ESP32C3",
-                                "help": "Its not able to stall ESP32C3 systimer in sleep.\nTo fix related RTOS TICK issue, select it to disable related systimer during sleep.\nTODO: IDF-7036",
-                                "id": "ESP_SLEEP_SYSTIMER_STALL_WORKAROUND",
-                                "name": "ESP_SLEEP_SYSTIMER_STALL_WORKAROUND",
-                                "range": null,
-                                "title": "ESP32C3 SYSTIMER Stall Issue Workaround",
-                                "type": "bool"
-                            }
-                        ],
-                        "depends_on": null,
-                        "id": "component-config-hardware-settings-esp_sleep_workaround",
-                        "title": "ESP_SLEEP_WORKAROUND",
                         "type": "menu"
                     },
                     {
@@ -4904,6 +4876,64 @@
                         "depends_on": null,
                         "id": "component-config-hardware-settings-peripheral-control",
                         "title": "Peripheral Control",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "MMU_PAGE_SIZE_16KB",
+                                "name": "MMU_PAGE_SIZE_16KB",
+                                "range": null,
+                                "title": null,
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "MMU_PAGE_SIZE_32KB",
+                                "name": "MMU_PAGE_SIZE_32KB",
+                                "range": null,
+                                "title": null,
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "MMU_PAGE_SIZE_64KB",
+                                "name": "MMU_PAGE_SIZE_64KB",
+                                "range": null,
+                                "title": null,
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "MMU_PAGE_MODE",
+                                "name": "MMU_PAGE_MODE",
+                                "range": null,
+                                "title": null,
+                                "type": "string"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "MMU_PAGE_SIZE",
+                                "name": "MMU_PAGE_SIZE",
+                                "range": null,
+                                "title": null,
+                                "type": "hex"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-hardware-settings-mmu-config",
+                        "title": "MMU Config",
                         "type": "menu"
                     },
                     {
@@ -5290,7 +5320,7 @@
                     },
                     {
                         "children": [],
-                        "depends_on": "SOC_RTC_FAST_MEM_SUPPORTED",
+                        "depends_on": "!IDF_TARGET_ESP32C2",
                         "help": null,
                         "id": "ESP_SYSTEM_RTC_FAST_MEM_AS_HEAP_DEPCHECK",
                         "name": "ESP_SYSTEM_RTC_FAST_MEM_AS_HEAP_DEPCHECK",
@@ -6053,11 +6083,11 @@
                             {
                                 "children": [],
                                 "depends_on": null,
-                                "help": "Amazon has released an SMP version of the FreeRTOS Kernel which can be found via the following link:\nhttps://github.com/FreeRTOS/FreeRTOS-Kernel/tree/smp\n\nIDF has added an experimental port of this SMP kernel located in\ncomponents/freertos/FreeRTOS-Kernel-SMP. Enabling this option will cause IDF to use the Amazon SMP\nkernel. Note that THIS FEATURE IS UNDER ACTIVE DEVELOPMENT, users use this at their own risk.\n\nLeaving this option disabled will mean the IDF FreeRTOS kernel is used instead, which is located in:\ncomponents/freertos/FreeRTOS-Kernel. Both kernel versions are SMP capable, but differ in\ntheir implementation and features.",
+                                "help": "This will cause the FreeRTOS component to compile with the SMP FreeRTOS kernel instead.\nTHIS FEATURE IS UNDER ACTIVE DEVELOPMENT, users use this at their own risk.",
                                 "id": "FREERTOS_SMP",
                                 "name": "FREERTOS_SMP",
                                 "range": null,
-                                "title": "Run the Amazon SMP FreeRTOS kernel instead (FEATURE UNDER DEVELOPMENT)",
+                                "title": "Run the SMP FreeRTOS kernel instead (FEATURE UNDER DEVELOPMENT)",
                                 "type": "bool"
                             },
                             {
@@ -7152,72 +7182,6 @@
                 "depends_on": null,
                 "id": "component-config-newlib",
                 "title": "Newlib",
-                "type": "menu"
-            },
-            {
-                "children": [
-                    {
-                        "children": [
-                            {
-                                "children": [],
-                                "depends_on": null,
-                                "help": null,
-                                "id": "MMU_PAGE_SIZE_16KB",
-                                "name": "MMU_PAGE_SIZE_16KB",
-                                "range": null,
-                                "title": null,
-                                "type": "bool"
-                            },
-                            {
-                                "children": [],
-                                "depends_on": null,
-                                "help": null,
-                                "id": "MMU_PAGE_SIZE_32KB",
-                                "name": "MMU_PAGE_SIZE_32KB",
-                                "range": null,
-                                "title": null,
-                                "type": "bool"
-                            },
-                            {
-                                "children": [],
-                                "depends_on": null,
-                                "help": null,
-                                "id": "MMU_PAGE_SIZE_64KB",
-                                "name": "MMU_PAGE_SIZE_64KB",
-                                "range": null,
-                                "title": null,
-                                "type": "bool"
-                            },
-                            {
-                                "children": [],
-                                "depends_on": null,
-                                "help": null,
-                                "id": "MMU_PAGE_MODE",
-                                "name": "MMU_PAGE_MODE",
-                                "range": null,
-                                "title": null,
-                                "type": "string"
-                            },
-                            {
-                                "children": [],
-                                "depends_on": null,
-                                "help": null,
-                                "id": "MMU_PAGE_SIZE",
-                                "name": "MMU_PAGE_SIZE",
-                                "range": null,
-                                "title": null,
-                                "type": "hex"
-                            }
-                        ],
-                        "depends_on": null,
-                        "id": "component-config-soc-settings-mmu-config",
-                        "title": "MMU Config",
-                        "type": "menu"
-                    }
-                ],
-                "depends_on": null,
-                "id": "component-config-soc-settings",
-                "title": "SoC Settings",
                 "type": "menu"
             },
             {
