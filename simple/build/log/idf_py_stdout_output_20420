@@ -1,0 +1,322 @@
+[1/9] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D C:\Users\Ismael\Desktop\Esp32Servidor\simple\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.0_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.0.2/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/Ismael/Desktop/Esp32Servidor/simple/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6710 bytes. 0x8f0 bytes (8%) free.
+[2/7] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj 
+ccache C:\Espressif\tools\xtensa-esp32-elf\esp-2022r1-11.2.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-gcc.exe -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DUNITY_INCLUDE_CONFIG_H -IC:/Users/Ismael/Desktop/Esp32Servidor/simple/build/config -IC:/Users/Ismael/Desktop/Esp32Servidor/simple/main -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/newlib/platform_include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/freertos/FreeRTOS-Kernel/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/freertos/esp_additions/include/freertos -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/freertos/esp_additions/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_hw_support/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_hw_support/include/soc -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_hw_support/include/soc/esp32 -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_hw_support/port/esp32/. -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_hw_support/port/esp32/private_include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/heap/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/log/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/soc/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/soc/esp32/. -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/soc/esp32/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/hal/esp32/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/hal/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/hal/platform_port/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_rom/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_rom/include/esp32 -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_rom/esp32 -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_common/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_system/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_system/port/soc -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_system/port/include/private -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/xtensa/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/xtensa/esp32/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/lwip/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/lwip/include/apps -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/lwip/include/apps/sntp -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/lwip/lwip/src/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/lwip/port/esp32/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/lwip/port/esp32/include/arch -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_ringbuf/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/efuse/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/efuse/esp32/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/driver/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/driver/deprecated -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/driver/esp32/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_pm/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/port/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/library -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/esp_crt_bundle/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_app_format/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/bootloader_support/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/bootloader_support/bootloader_flash/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_partition/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/app_update/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/spi_flash/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/pthread/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_timer/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/app_trace/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_event/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/nvs_flash/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_phy/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_phy/esp32/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/vfs/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_netif/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/wpa_supplicant/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/wpa_supplicant/port/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/wpa_supplicant/esp_supplicant/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_wifi/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/unity/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/unity/unity/src -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/cmock/CMock/src -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/console -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/http_parser -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp-tls-crypto -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_adc/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_adc/interface -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_adc/esp32/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_adc/deprecated/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_eth/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_gdbstub/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_gdbstub/xtensa -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_gdbstub/esp32 -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_hid/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/tcp_transport/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_http_client/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_http_server/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_https_ota/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_https_server/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_lcd/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_lcd/interface -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/protobuf-c/protobuf-c -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/protocomm/include/common -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/protocomm/include/security -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/protocomm/include/transports -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_local_ctrl/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/esp_psram/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/espcoredump/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/espcoredump/include/port/xtensa -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/wear_levelling/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/sdmmc/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/fatfs/diskio -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/fatfs/vfs -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/fatfs/src -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/idf_test/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/idf_test/include/esp32 -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/ieee802154/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/json/cJSON -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/mqtt/esp-mqtt/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/perfmon/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/spiffs/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/ulp/ulp_common/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/ulp/ulp_common/include/esp32 -IC:/Espressif/frameworks/esp-idf-v5.0.2/components/wifi_provisioning/include -IC:/Espressif/frameworks/esp-idf-v5.0.2/examples/common_components/protocol_examples_common/include -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fmacro-prefix-map=C:/Users/Ismael/Desktop/Esp32Servidor/simple=. -fmacro-prefix-map=C:/Espressif/frameworks/esp-idf-v5.0.2=/IDF -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -DconfigENABLE_FREERTOS_DEBUG_OCDAWARE=1 -std=gnu17 -Wno-old-style-declaration -D_GNU_SOURCE -DIDF_VER=\"v5.0.2-dirty\" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -MF esp-idf\main\CMakeFiles\__idf_main.dir\main.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -c C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:540:34: error: initializer element is not constant
+  540 | psa_key_attributes_t atributo4 = psa_key_attributes_init();
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:541:29: error: expected declaration specifiers or '...' before '&' token
+  541 |     psa_set_key_usage_flags(&atributo4, PSA_KEY_USAGE_ENCRYPT | PSA_KEY_USAGE_DECRYPT| PSA_KEY_USAGE_DERIVE);
+      |                             ^
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:68,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto_values.h:2533:49: error: expected declaration specifiers or '...' before '(' token
+ 2533 | #define PSA_KEY_USAGE_ENCRYPT                   ((psa_key_usage_t)0x00000100)
+      |                                                 ^
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:541:41: note: in expansion of macro 'PSA_KEY_USAGE_ENCRYPT'
+  541 |     psa_set_key_usage_flags(&atributo4, PSA_KEY_USAGE_ENCRYPT | PSA_KEY_USAGE_DECRYPT| PSA_KEY_USAGE_DERIVE);
+      |                                         ^~~~~~~~~~~~~~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:542:26: error: expected declaration specifiers or '...' before '&' token
+  542 |     psa_set_key_lifetime(&atributo4, PSA_KEY_LIFETIME_VOLATILE);
+      |                          ^
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:68,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto_values.h:2270:49: error: expected declaration specifiers or '...' before '(' token
+ 2270 | #define PSA_KEY_LIFETIME_VOLATILE               ((psa_key_lifetime_t)0x00000000)
+      |                                                 ^
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:542:38: note: in expansion of macro 'PSA_KEY_LIFETIME_VOLATILE'
+  542 |     psa_set_key_lifetime(&atributo4, PSA_KEY_LIFETIME_VOLATILE);
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:543:27: error: expected declaration specifiers or '...' before '&' token
+  543 |     psa_set_key_algorithm(&atributo4, PSA_ALG_CTR);
+      |                           ^
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:68,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto_values.h:1160:49: error: expected declaration specifiers or '...' before '(' token
+ 1160 | #define PSA_ALG_CTR                             ((psa_algorithm_t)0x04c01000)
+      |                                                 ^
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:543:39: note: in expansion of macro 'PSA_ALG_CTR'
+  543 |     psa_set_key_algorithm(&atributo4, PSA_ALG_CTR);
+      |                                       ^~~~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:544:22: error: expected declaration specifiers or '...' before '&' token
+  544 |     psa_set_key_type(&atributo4, PSA_KEY_TYPE_AES);
+      |                      ^
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:68,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto_values.h:490:53: error: expected declaration specifiers or '...' before '(' token
+  490 | #define PSA_KEY_TYPE_AES                            ((psa_key_type_t)0x2400)
+      |                                                     ^
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:544:34: note: in expansion of macro 'PSA_KEY_TYPE_AES'
+  544 |     psa_set_key_type(&atributo4, PSA_KEY_TYPE_AES);
+      |                                  ^~~~~~~~~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:545:22: error: expected declaration specifiers or '...' before '&' token
+  545 |     psa_set_key_bits(&atributo4, 256);
+      |                      ^
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:545:34: error: expected declaration specifiers or '...' before numeric constant
+  545 |     psa_set_key_bits(&atributo4, 256);
+      |                                  ^~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c: In function 'enviar_msg_handler':
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:658:21: warning: unused variable 'clavep' [-Wunused-variable]
+  658 |         const char *clavep = cJSON_GetStringValue(jsonMessage);
+      |                     ^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:701:10: warning: unused variable 'post_data' [-Wunused-variable]
+  701 |     char post_data[256];
+      |          ^~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:606:12: warning: unused variable 'tamano' [-Wunused-variable]
+  606 |     size_t tamano;
+      |            ^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c: In function 'compartida_handler':
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:817:21: warning: unused variable 'clavep' [-Wunused-variable]
+  817 |         const char *clavep = cJSON_GetStringValue(jcompartida);
+      |                     ^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:773:12: warning: unused variable 'tamano' [-Wunused-variable]
+  773 |     size_t tamano;
+      |            ^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c: In function 'verificacion_handler':
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:875:138: warning: passing argument 7 of 'psa_raw_key_agreement' from incompatible pointer type [-Wincompatible-pointer-types]
+  875 |     estado2 = psa_raw_key_agreement(PSA_ALG_ECDH, llave_privada_bob, llave_alice, sizeof(llave_alice), compartidaB, sizeof(compartidaB), &output_lenB);
+      |                                                                                                                                          ^~~~~~~~~~~~
+      |                                                                                                                                          |
+      |                                                                                                                                          uint32_t * {aka long unsigned int *}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:3964:44: note: expected 'size_t *' {aka 'unsigned int *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+ 3964 |                                    size_t *output_length);
+      |                                    ~~~~~~~~^~~~~~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:864:10: warning: unused variable 'server_id' [-Wunused-variable]
+  864 |     char server_id[50];
+      |          ^~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c: In function 'derivada_handler':
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:954:21: warning: unused variable 'clavep2' [-Wunused-variable]
+  954 |         const char *clavep2 = cJSON_GetStringValue(derivada);
+      |                     ^~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:919:12: warning: unused variable 'tamano' [-Wunused-variable]
+  919 |     size_t tamano;
+      |            ^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c: In function 'verificacion2_handler':
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1060:59: warning: passing argument 2 of 'psa_key_derivation_output_bytes' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1060 |     estado3 = psa_key_derivation_output_bytes(&operacion, &llave_derivadaB, sizeof(llave_derivadaB));
+      |                                                           ^~~~~~~~~~~~~~~~
+      |                                                           |
+      |                                                           uint8_t (*)[32] {aka unsigned char (*)[32]}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:3608:14: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[32]' {aka 'unsigned char (*)[32]'}
+ 3608 |     uint8_t *output,
+      |     ~~~~~~~~~^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1089:36: warning: unused variable 'cifrado2' [-Wunused-variable]
+ 1089 |     psa_cipher_operation_t cifrado,cifrado2;
+      |                                    ^~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1089:28: warning: unused variable 'cifrado' [-Wunused-variable]
+ 1089 |     psa_cipher_operation_t cifrado,cifrado2;
+      |                            ^~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1011:14: warning: unused variable 'bytes' [-Wunused-variable]
+ 1011 |     uint8_t* bytes=(uint8_t*)lol;
+      |              ^~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1009:13: warning: unused variable 'vuelta' [-Wunused-variable]
+ 1009 |     uint8_t vuelta = 0;
+      |             ^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:995:10: warning: unused variable 'server_id' [-Wunused-variable]
+  995 |     char server_id[50];
+      |          ^~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c: In function 'cifrado_handler':
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1165:21: warning: unused variable 'clavep2' [-Wunused-variable]
+ 1165 |         const char *clavep2 = cJSON_GetStringValue(cifrado);
+      |                     ^~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1213:44: warning: passing argument 2 of 'psa_import_key' makes pointer from integer without a cast [-Wint-conversion]
+ 1213 |         estado = psa_import_key(&atributo4,llave_derivada,sizeof(llave_derivada),&comp2);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            psa_key_handle_t {aka long unsigned int}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:648:44: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'psa_key_handle_t' {aka 'long unsigned int'}
+  648 |                             const uint8_t *data,
+      |                             ~~~~~~~~~~~~~~~^~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1218:43: warning: passing argument 2 of 'psa_cipher_set_iv' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1218 |         estado=psa_cipher_set_iv(&cifrado,&iv_s, 16);
+      |                                           ^~~~~
+      |                                           |
+      |                                           uint8_t (*)[16] {aka unsigned char (*)[16]}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:1916:47: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint8_t (*)[16]' {aka 'unsigned char (*)[16]'}
+ 1916 |                                const uint8_t *iv,
+      |                                ~~~~~~~~~~~~~~~^~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1227:22: warning: unused variable 'post_data3' [-Wunused-variable]
+ 1227 |                 char post_data3[256];
+      |                      ^~~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1188:26: warning: unused variable 'llave_aes' [-Wunused-variable]
+ 1188 |         psa_key_handle_t llave_aes;
+      |                          ^~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1187:16: warning: unused variable 'olenC' [-Wunused-variable]
+ 1187 |         size_t olenC, olenD;
+      |                ^~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1185:17: warning: unused variable 'ivs' [-Wunused-variable]
+ 1185 |         uint8_t ivs[33];
+      |                 ^~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1129:12: warning: unused variable 'tamano' [-Wunused-variable]
+ 1129 |     size_t tamano;
+      |            ^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1126:14: warning: unused variable 'message4' [-Wunused-variable]
+ 1126 |         char message4[500];
+      |              ^~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c: In function 'descifrado_handler':
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1289:40: warning: passing argument 2 of 'psa_import_key' makes pointer from integer without a cast [-Wint-conversion]
+ 1289 |     estado = psa_import_key(&atributo4,llave_derivada,sizeof(llave_derivada),&comp3);
+      |                                        ^~~~~~~~~~~~~~
+      |                                        |
+      |                                        psa_key_handle_t {aka long unsigned int}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:648:44: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'psa_key_handle_t' {aka 'long unsigned int'}
+  648 |                             const uint8_t *data,
+      |                             ~~~~~~~~~~~~~~~^~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1297:47: warning: passing argument 2 of 'psa_cipher_set_iv' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1297 |             estado=psa_cipher_set_iv(&cifrado,&iv_s, 16);
+      |                                               ^~~~~
+      |                                               |
+      |                                               uint8_t (*)[16] {aka unsigned char (*)[16]}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:1916:47: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint8_t (*)[16]' {aka 'unsigned char (*)[16]'}
+ 1916 |                                const uint8_t *iv,
+      |                                ~~~~~~~~~~~~~~~^~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1299:48: warning: passing argument 2 of 'psa_cipher_set_iv' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1299 |             estado=psa_cipher_set_iv(&cifrado2,&iv_s, 16);
+      |                                                ^~~~~
+      |                                                |
+      |                                                uint8_t (*)[16] {aka unsigned char (*)[16]}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:1916:47: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint8_t (*)[16]' {aka 'unsigned char (*)[16]'}
+ 1916 |                                const uint8_t *iv,
+      |                                ~~~~~~~~~~~~~~~^~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1302:71: warning: passing argument 4 of 'psa_cipher_update' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1302 |             estado=psa_cipher_update(&cifrado,mensaje,sizeof(mensaje),&llave_aesB,sizeof(llave_aesB),&olenD);
+      |                                                                       ^~~~~~~~~~~
+      |                                                                       |
+      |                                                                       uint8_t (*)[33] {aka unsigned char (*)[33]}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:1959:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[33]' {aka 'unsigned char (*)[33]'}
+ 1959 |                                uint8_t *output,
+      |                                ~~~~~~~~~^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1304:47: warning: passing argument 2 of 'psa_cipher_finish' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1304 |             estado=psa_cipher_finish(&cifrado,&llave_aesB,sizeof(llave_aesB),&olenD);
+      |                                               ^~~~~~~~~~~
+      |                                               |
+      |                                               uint8_t (*)[33] {aka unsigned char (*)[33]}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:2009:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[33]' {aka 'unsigned char (*)[33]'}
+ 2009 |                                uint8_t *output,
+      |                                ~~~~~~~~~^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1307:78: warning: passing argument 4 of 'psa_cipher_update' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1307 |             estado=psa_cipher_update(&cifrado2,llave_aesB,sizeof(llave_aesB),&descifrado,sizeof(descifrado),&output_lenD);
+      |                                                                              ^~~~~~~~~~~
+      |                                                                              |
+      |                                                                              uint8_t (*)[33] {aka unsigned char (*)[33]}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:1959:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[33]' {aka 'unsigned char (*)[33]'}
+ 1959 |                                uint8_t *output,
+      |                                ~~~~~~~~~^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1307:109: warning: passing argument 6 of 'psa_cipher_update' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1307 |             estado=psa_cipher_update(&cifrado2,llave_aesB,sizeof(llave_aesB),&descifrado,sizeof(descifrado),&output_lenD);
+      |                                                                                                             ^~~~~~~~~~~~
+      |                                                                                                             |
+      |                                                                                                             uint32_t * {aka long unsigned int *}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:1961:40: note: expected 'size_t *' {aka 'unsigned int *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+ 1961 |                                size_t *output_length);
+      |                                ~~~~~~~~^~~~~~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1309:48: warning: passing argument 2 of 'psa_cipher_finish' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1309 |             estado=psa_cipher_finish(&cifrado2,&descifrado,sizeof(descifrado),&output_lenD);
+      |                                                ^~~~~~~~~~~
+      |                                                |
+      |                                                uint8_t (*)[33] {aka unsigned char (*)[33]}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:2009:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[33]' {aka 'unsigned char (*)[33]'}
+ 2009 |                                uint8_t *output,
+      |                                ~~~~~~~~~^~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1309:79: warning: passing argument 4 of 'psa_cipher_finish' from incompatible pointer type [-Wincompatible-pointer-types]
+ 1309 |             estado=psa_cipher_finish(&cifrado2,&descifrado,sizeof(descifrado),&output_lenD);
+      |                                                                               ^~~~~~~~~~~~
+      |                                                                               |
+      |                                                                               uint32_t * {aka long unsigned int *}
+In file included from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/legacy_or_psa.h:104,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h:27,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/mbedtls/ssl.h:35,
+                 from C:/Espressif/frameworks/esp-idf-v5.0.2/components/esp-tls/esp_tls.h:14,
+                 from C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:22:
+C:/Espressif/frameworks/esp-idf-v5.0.2/components/mbedtls/mbedtls/include/psa/crypto.h:2011:40: note: expected 'size_t *' {aka 'unsigned int *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+ 2011 |                                size_t *output_length);
+      |                                ~~~~~~~~^~~~~~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1285:30: warning: unused variable 'llave_aes' [-Wunused-variable]
+ 1285 |             psa_key_handle_t llave_aes;
+      |                              ^~~~~~~~~
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:1284:20: warning: unused variable 'olenC' [-Wunused-variable]
+ 1284 |             size_t olenC, olenD;
+      |                    ^~~~~
+At top level:
+C:/Users/Ismael/Desktop/Esp32Servidor/simple/main/main.c:341:18: warning: 'ctrl_put_handler' defined but not used [-Wunused-function]
+  341 | static esp_err_t ctrl_put_handler(httpd_req_t *req)
+      |                  ^~~~~~~~~~~~~~~~
+ninja: build stopped: subcommand failed.
