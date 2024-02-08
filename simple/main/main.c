@@ -509,6 +509,88 @@ void evaluar(psa_status_t estado)
         printf("PSA_ERROR_DATA_INVALID");
     }
 }
+uint8_t hex_to_decimal(char hex_char) {
+  if (hex_char >= '0' && hex_char <= '9') {
+    return hex_char - '0';
+  } else if (hex_char >= 'A' && hex_char <= 'F') {
+    return hex_char - 'A' + 10;
+  } else if (hex_char >= 'a' && hex_char <= 'f') {
+    return hex_char - 'a' + 10;
+  } else {
+    return 0;
+  }
+}
+char ascii_to_text(uint8_t ascii_char) {
+  if (ascii_char >= ' ' && ascii_char <= '~') {
+    return ascii_char;
+  } else {
+    return '\\';
+  }
+}
+
+uint64_t hex_to_decimal_32(char *hex_string) {
+  uint32_t decimal_value = 0;
+  for (int i = 0; i < 8; i++) {
+    decimal_value = (decimal_value << 4) | hex_to_decimal(hex_string[i]);
+  }
+  return decimal_value;
+}
+
+char *hex_to_text_32(char *hex_string, char *text_buffer, int text_buffer_size) {
+  uint64_t decimal_value = hex_to_decimal_32(hex_string);
+
+  // Ajusta la cantidad de bytes a escribir según el tamaño del buffer
+  int bytes_to_write = text_buffer_size - 1; // Restando 1 para el caracter nulo
+  if (bytes_to_write > 64) {
+    bytes_to_write = 64; // Limita a 64 bytes si el buffer es mayor
+  }
+
+  // Variable para acumular el mensaje de texto
+  char accumulated_text[bytes_to_write + 1];
+  accumulated_text[0] = '\0'; // Inicializa el string acumulado
+
+  // Convierte y acumula caracteres uno a uno
+  for (int i = 0; i < bytes_to_write; i++) {
+    char current_char = ascii_to_text((decimal_value >> (8 * (3 - i))) & 0xFF);
+    // Concatena el caracter actual al texto acumulado
+    strcat(accumulated_text, &current_char);
+  }
+
+  // Copia el texto acumulado al buffer principal
+  strcpy(text_buffer, accumulated_text);
+
+  return text_buffer;
+}
+int hex_to_text(const char *hex_str, char *text_buffer, int text_buffer_size) {
+  int i, j;
+  char c;
+
+  // Recorrer la cadena hexadecimal.
+  for (i = 0, j = 0; i < strlen(hex_str) && j < text_buffer_size - 1; i += 2, j++) {
+    // Convertir el par de caracteres hexadecimales a un valor decimal.
+    c = (hex_str[i] >= 'A' ? hex_str[i] - 'A' + 10 : hex_str[i] - '0') << 4;
+    c |= (hex_str[i + 1] >= 'A' ? hex_str[i + 1] - 'A' + 10 : hex_str[i + 1] - '0');
+
+    // Almacenar el caracter en el buffer de texto.
+    text_buffer[j] = c;
+  }
+
+  // Agregar el caracter nulo al final del texto.
+  text_buffer[j] = '\0';
+
+  // Devolver la longitud del texto convertido.
+  return j;
+}
+int hex_to_int(char c) {
+    if (c >= '0' && c <= '9') {
+        return c - '0';
+    } else if (c >= 'a' && c <= 'f') {
+        return 10 + (c - 'a');
+    } else if (c >= 'A' && c <= 'F') {
+        return 10 + (c - 'A');
+    }
+    return -1; // Carácter no válido
+}
 void intToBytes(int num, unsigned char *bytes)
 {
     bytes[0] = (num >> 24) & 0xFF; // Obtén el byte más significativo
@@ -1237,7 +1319,22 @@ esp_err_t cifrado_handler(httpd_req_t *req)
                 }
         printf("\n");
         ESP_LOGE(TAG,"MENSAJE CIFRADO POR PARTE DEL CLIENTE: %s",message3);
-        ESP_LOGI(TAG,"MENSAJE DESCIFRADO EN EL SERVIDOR: %s",clave_publica_hex4);
+        ESP_LOGI(TAG,"MENSAJE DESCIFRADO EN EL SERVIDOR HEX: %s",clave_publica_hex4);
+        int length = strlen(clave_publica_hex4);
+    char mensaje_en_claro[length / 2 + 1]; // Espacio suficiente para el mensaje en claro
+    int i, j = 0;
+
+    for (i = 0; i < length; i += 2) {
+        char c1 = clave_publica_hex4[i];
+        char c2 = clave_publica_hex4[i + 1];
+
+        int valor_ascii = (hex_to_int(c1) << 4) | hex_to_int(c2);
+        mensaje_en_claro[j++] = valor_ascii;
+    }
+    mensaje_en_claro[j] = '\0'; // Agrega el carácter nulo al final
+
+    //printf("Mensaje en claro: %s\n", mensaje_en_claro);
+    ESP_LOGI(TAG,"MENSAJE DESCIFRADO EN EL SERVIDOR: %s",mensaje_en_claro);
         //printf("\nAqui :%s\n", clave_publica_hex4);
         //printf("Mensaje recibido: %s\n", message3);
         httpd_resp_send(req, "Mensaje recibido", HTTPD_RESP_USE_STRLEN);
@@ -1284,13 +1381,26 @@ esp_err_t descifrado_handler(httpd_req_t *req){
             uint8_t mensaje[32];
             uint8_t descifrado[33];
             srand(time(NULL));
+            char cadena5[] = "Hola esp1 soy el servidor";
+            // mensaje[sizeof(cadena5)];
+
+            strcpy((char *)mensaje, cadena5);
+
+             for (size_t i = 0; i < sizeof(mensaje); i++) {
+                 printf("%u ", mensaje[i]);
+             }
+             printf("Mensaje:\n");
+    for (size_t i = 0; i < sizeof(mensaje); i++) {
+    printf("%c", mensaje[i]);
+    }
+    /*
             for (size_t i = 0; i < sizeof(mensaje); i++) {
         mensaje[i] = (uint8_t)rand();
     }
     printf("Números aleatorios:\n");
     for (size_t i = 0; i < sizeof(mensaje); i++) {
         printf("%u ", mensaje[i]);
-    }
+    }*/
     printf("\n");
             size_t olenC, olenD;
             psa_key_handle_t llave_aes;
@@ -1363,7 +1473,22 @@ esp_err_t descifrado_handler(httpd_req_t *req){
                 printf("\nIV:%s", clave_publica_hex6);*/
 
                 //printf("\n");
-                ESP_LOGI(TAG,"MENSAJE DESCIFRADO EN EL SERVIDOR: %s",clave_publica_hex5);
+                ESP_LOGI(TAG,"MENSAJE DESCIFRADO EN EL SERVIDOR HEX: %s",clave_publica_hex5);
+                int length = strlen(clave_publica_hex5);
+    char mensaje_en_claro[length / 2 + 1]; // Espacio suficiente para el mensaje en claro
+    int i, j = 0;
+
+    for (i = 0; i < length; i += 2) {
+        char c1 = clave_publica_hex5[i];
+        char c2 = clave_publica_hex5[i + 1];
+
+        int valor_ascii = (hex_to_int(c1) << 4) | hex_to_int(c2);
+        mensaje_en_claro[j++] = valor_ascii;
+    }
+    mensaje_en_claro[j] = '\0'; // Agrega el carácter nulo al final
+
+ESP_LOGI(TAG,"MENSAJE DESCIFRADO EN EL SERVIDOR : %s",mensaje_en_claro);
+
                 //printf("\nDescifrado:%s", clave_publica_hex5);
                 cJSON *jsonObject4 = cJSON_CreateObject();
                 cJSON_AddStringToObject(jsonObject4, "cifrado", clave_publica_hex4);
